@@ -1,21 +1,14 @@
-<html>
-    <head>
-        <title>Melek'in Blogu</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div>
-        {% for post in posts %}
-            <div>
-        <p>tarih: {{ post.yayinlanma_tarihi }}</p>
-        <h2><a href="">{{ post.baslik }}</a></h2>
-        <p>{{ post.yazi|linebreaks }}</p>
-        <p>yazar: {{ post.yazar }}</p>
-    </div>
-        {% endfor %} 
-        </div>
-    </body>
-</html>
+		{% block content %}
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        {{ post.yayinlama_tarihi }}
+                    </div>
+                    <h1><a href="">{{ post.baslik }}</a></h1>
+                    <p>{{ post.yazi|linebreaks }}</p>
+                </div>
+            {% endfor %}
+        {% endblock content %}
+      
